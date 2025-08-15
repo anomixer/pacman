@@ -7,7 +7,7 @@ Inspired by [The Pac-Man Dossier](http://home.comcast.net/~jpittman2/pacman/pacm
 
 ### Under Construction
 
-- Sound (forked and fixed: start-music.mp3 now play once on game-start menu)
+- Sound (PS: forked and fixed: start-music.mp3 will now be played once on game-start menu. [TRY](https://pacman-dbq.pages.dev/) )
 - Cutscenes
 - 2 Player switch-off
 
