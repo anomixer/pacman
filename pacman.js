@@ -62,6 +62,9 @@ var newChildObject = function(parentObj, newObj) {
 };
 
 var DEBUG = false;
+
+// Add a flag to track if start music has already been played for this game session
+var hasPlayedStartMusic = false;
 //@line 1 "src/sound.js"
 /* Sound handlers added by Dr James Freeman who was sad such a great reverse was a silent movie  */
 
@@ -9993,7 +9996,10 @@ var preNewGameState = (function() {
 
     return {
         init: function() {
-            audio.startMusic.play();
+            if (!hasPlayedStartMusic) {
+                audio.startMusic.play();
+                hasPlayedStartMusic = true;
+            }
             menu.enable();
             gameTitleState.init();
             map = undefined;
@@ -10667,6 +10673,8 @@ var newGameState = (function() {
             clearCheats();
             frames = 0;
             level = startLevel-1;
+            // Reset the start music flag for a new game
+            hasPlayedStartMusic = false;
             extraLives = practiceMode ? Infinity : 3;
             setScore(0);
             setFruitFromGameMode();
@@ -10705,7 +10713,8 @@ var readyState =  (function(){
     
     return {
         init: function() {
-            audio.startMusic.play();
+            // Start music should only play once when the game first starts, not on every level/life
+            // Removed: audio.startMusic.play();
             var i;
             for (i=0; i<5; i++)
                 actors[i].reset();
