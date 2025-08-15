@@ -8,7 +8,7 @@ Inspired by [The Pac-Man Dossier](http://home.comcast.net/~jpittman2/pacman/pacm
 ### Under Construction
 
 - Sound
-  (folker's note: modified pacman.js to play start-music.mp3 only once on game-start menu. start index.html to [TRY](https://pacman-dbq.pages.dev/))
+  (folker's note: modified pacman.js to play start-music.mp3 only once on game-start menu. Start index.html. Don't sh build.sh. [TRY HERE](https://pacman-dbq.pages.dev/))
 - Cutscenes
 - 2 Player switch-off
 
