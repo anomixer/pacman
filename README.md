@@ -7,7 +7,7 @@ Inspired by [The Pac-Man Dossier](http://home.comcast.net/~jpittman2/pacman/pacm
 
 ### Under Construction
 
-- Sound
+- Sound (forked and fixed: start-music.mp3 now play once on game-start menu)
 - Cutscenes
 - 2 Player switch-off
 
