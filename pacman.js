@@ -10709,7 +10709,7 @@ var newGameState = (function() {
 
 var readyState =  (function(){
     var frames;
-    var duration = 4;
+    var duration = 2;
     
     return {
         init: function() {
