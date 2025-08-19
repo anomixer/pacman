@@ -160,7 +160,6 @@ var getRandomInt = function(min,max) {
     return Math.floor(Math.random() * (max-min+1)) + min;
 };
 
-
 //@line 1 "src/game.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Game
@@ -439,7 +438,6 @@ var saveHighScores = function() {
         localStorage.highScores = JSON.stringify(highScores);
     }
 };
-
 //@line 1 "src/direction.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Directions
@@ -544,7 +542,6 @@ var getOpenTiles = function(tile,dirEnum) {
 var isNextTileFloor = function(tile,dir) {
     return map.isFloorTile(tile.x+dir.x,tile.y+dir.y);
 };
-
 
 //@line 1 "src/Map.js"
 //////////////////////////////////////////////////////////////////////////////////////
@@ -931,7 +928,6 @@ Map.prototype.onDotEat = function(x,y) {
     this.timeEaten[i] = vcr.getTime();
     renderer.erasePellet(x,y);
 };
-
 //@line 1 "src/colors.js"
 // source: http://mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript
 
@@ -1082,7 +1078,6 @@ function rgbString(rgb) {
     var b = Math.floor(rgb[2]);
     return 'rgb('+r+','+g+','+b+')';
 }
-
 //@line 1 "src/mapgen.js"
 var mapgen = (function(){
 
@@ -2535,7 +2530,6 @@ var mapgen = (function(){
         return map;
     };
 })();
-
 //@line 1 "src/atlas.js"
 
 var atlas = (function(){
@@ -3058,7 +3052,6 @@ var atlas = (function(){
         drawSnail: copySnail,
     };
 })();
-
 //@line 1 "src/renderers.js"
 //////////////////////////////////////////////////////////////
 // Renderers
@@ -4140,7 +4133,6 @@ var initRenderer = function(){
     ];
     renderer = renderer_list[1];
 };
-
 //@line 1 "src/hud.js"
 
 var hud = (function(){
@@ -4180,7 +4172,6 @@ var hud = (function(){
     };
 
 })();
-
 //@line 1 "src/galagaStars.js"
 
 var galagaStars = (function() {
@@ -4251,7 +4242,6 @@ var galagaStars = (function() {
     };
 
 })();
-
 //@line 1 "src/Button.js"
 var getPointerPos = function(evt) {
     var obj = canvas;
@@ -4514,7 +4504,6 @@ ToggleButton.prototype = newChildObject(Button.prototype, {
     },
 
 });
-
 //@line 1 "src/Menu.js"
 var Menu = function(title,x,y,w,h,pad,font,fontcolor) {
     this.title = title;
@@ -4669,7 +4658,6 @@ Menu.prototype = {
         }
     },
 };
-
 //@line 1 "src/inGameMenu.js"
 ////////////////////////////////////////////////////
 // In-Game Menu
@@ -4848,7 +4836,6 @@ var inGameMenu = (function() {
         },
     };
 })();
-
 
 //@line 1 "src/sprites.js"
 //////////////////////////////////////////////////////////////////////////////////////
@@ -7394,7 +7381,6 @@ var drawExclamationPoint = function(ctx,x,y) {
 
     ctx.restore();
 };
-
 //@line 1 "src/Actor.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // The actor class defines common data functions for the ghosts and pacman
@@ -7585,7 +7571,6 @@ Actor.prototype.update = function(j) {
     // update head direction
     this.steer();
 };
-
 //@line 1 "src/Ghost.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Ghost class
@@ -8058,7 +8043,6 @@ Ghost.prototype.setTarget = function() {
         this.targetting = 'pacman';
     }
 };
-
 //@line 1 "src/Player.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Player is the controllable character (Pac-Man)
@@ -8289,7 +8273,6 @@ Player.prototype.update = function(j) {
         }
     }
 };
-
 //@line 1 "src/actors.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // create all the actors
@@ -8327,7 +8310,6 @@ pacman.pathColor = "rgba(255,255,0,0.8)";
 // (suggests drawing/update order)
 var actors = [blinky, pinky, inky, clyde, pacman];
 var ghosts = [blinky, pinky, inky, clyde];
-
 //@line 1 "src/targets.js"
 /////////////////////////////////////////////////////////////////
 // Targetting
@@ -8588,7 +8570,6 @@ pacman.getPathDistLeft = function(fromPixel, dirEnum) {
 };
 
 })();
-
 //@line 1 "src/ghostCommander.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Ghost Commander
@@ -8695,7 +8676,6 @@ var ghostCommander = (function() {
         },
     };
 })();
-
 //@line 1 "src/ghostReleaser.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Ghost Releaser
@@ -8850,7 +8830,6 @@ var ghostReleaser = (function(){
         },
     };
 })();
-
 //@line 1 "src/elroyTimer.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Elroy Timer
@@ -8919,7 +8898,6 @@ var elroyTimer = (function(){
         load: load,
     };
 })();
-
 //@line 1 "src/energizer.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Energizer
@@ -9030,7 +9008,6 @@ var energizer = (function() {
         updatePointsTimer: function() { if (pointsFramesLeft > 0) pointsFramesLeft--; },
     };
 })();
-
 //@line 1 "src/fruit.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Fruit
@@ -9382,7 +9359,6 @@ var setFruitFromGameMode = (function() {
         }
     };
 })();
-
 //@line 1 "src/executive.js"
 var executive = (function(){
 
@@ -9526,7 +9502,6 @@ var executive = (function(){
         getFps: function() { return fps; },
     };
 })();
-
 //@line 1 "src/states.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // States
@@ -10021,7 +9996,10 @@ var preNewGameState = (function() {
 
     return {
         init: function() {
-            audio.startMusic.play();
+            if (!hasPlayedStartMusic) {
+                audio.startMusic.play();
+                hasPlayedStartMusic = true;
+            }
             menu.enable();
             gameTitleState.init();
             map = undefined;
@@ -10695,6 +10673,8 @@ var newGameState = (function() {
             clearCheats();
             frames = 0;
             level = startLevel-1;
+            // Reset the start music flag for a new game
+            hasPlayedStartMusic = false;
             extraLives = practiceMode ? Infinity : 3;
             setScore(0);
             setFruitFromGameMode();
@@ -10729,11 +10709,12 @@ var newGameState = (function() {
 
 var readyState =  (function(){
     var frames;
-    var duration = 4;
+    var duration = 2;
     
     return {
         init: function() {
-            audio.startMusic.play();
+            // Start music should only play once when the game first starts, not on every level/life
+            // Removed: audio.startMusic.play();
             var i;
             for (i=0; i<5; i++)
                 actors[i].reset();
@@ -11167,7 +11148,6 @@ var overState = (function() {
     };
 })();
 
-
 //@line 1 "src/input.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Input
@@ -11443,7 +11423,6 @@ var initSwipe = function() {
     document.ontouchmove = touchMove;
     document.ontouchcancel = touchCancel;
 };
-
 //@line 1 "src/cutscenes.js"
 ////////////////////////////////////////////////
 // Cutscenes
@@ -12583,7 +12562,6 @@ var triggerCutsceneAtEndLevel = function() {
     return false;
 };
 
-
 //@line 1 "src/maps.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Maps
@@ -13127,7 +13105,6 @@ mapMsPacman4.fruitPaths = {
                  { "path": "<vvv>>>>>>^^^^^^^^^>>>vv>>>>" }
              ]
          };
-
 //@line 1 "src/vcr.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // VCR
@@ -13537,7 +13514,6 @@ var vcr = (function() {
         },
     };
 })();
-
 //@line 1 "src/main.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Entry Point
@@ -13565,5 +13541,4 @@ window.addEventListener("load", function() {
 	}
     executive.init();
 });
-
 })();
