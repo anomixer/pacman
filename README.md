@@ -5,10 +5,16 @@ A historical tribute and accurate remake of the original Pac-Man arcade game
 
 Inspired by [The Pac-Man Dossier](http://home.comcast.net/~jpittman2/pacman/pacmandossier.html)
 
+### Foker's Note
+- The pacman.js was modified to play start-music.mp3 only once on game-start menu.
+- Changed hiscores from localStorage (browser) to KV storage (cloudsave) so it won't be cleared on your local browser.
+- This project is modified to deploy on Cloudflare Pages with KV storage enabled. (add KV namespace 'pacman', then variable 'HISCORES'.)
+- When deployment, don't add 'sh build.sh' on build command. just let it run 'index.html'
+- [TRY HERE](https://pacman-dbq.pages.dev/)) Can you break the Hi-Score? ;)
+
 ### Under Construction
 
 - Sound
-  (folker's note: modified pacman.js to play start-music.mp3 only once on game-start menu. Start index.html. Don't sh build.sh. [TRY](https://pacman-dbq.pages.dev/))
 - Cutscenes
 - 2 Player switch-off
 
