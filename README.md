@@ -10,7 +10,7 @@ Inspired by [The Pac-Man Dossier](http://home.comcast.net/~jpittman2/pacman/pacm
 - Changed hiscores from localStorage (browser) to KV storage (cloudsave) so it won't be cleared on your local browser.
 - This project is modified to deploy on Cloudflare Pages with KV storage enabled. (add KV namespace 'pacman', then variable 'HISCORES'.)
 - When deployment, don't add 'sh build.sh' on build command. just let it run 'index.html'
-- [TRY HERE](https://pacman-dbq.pages.dev/)) Can you break the Hi-Score? ;)
+- [TRY HERE](https://pacman-dbq.pages.dev/) Can you break the Hi-Score? ;)
 
 ### Under Construction
 
