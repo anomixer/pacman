@@ -37,3 +37,6 @@ var newChildObject = function(parentObj, newObj) {
 };
 
 var DEBUG = false;
+
+// Add a flag to track if start music has already been played for this game session
+var hasPlayedStartMusic = false;
