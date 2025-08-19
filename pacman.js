@@ -422,21 +422,24 @@ var setHighScore = function(highScore) {
 // High Score Persistence
 
 var loadHighScores = function() {
-    var hs;
-    var hslen;
-    var i;
-    if (localStorage && localStorage.highScores) {
-        hs = JSON.parse(localStorage.highScores);
-        hslen = hs.length;
-        for (i=0; i<hslen; i++) {
-            highScores[i] = Math.max(highScores[i],hs[i]);
-        }
-    }
+    fetch("/hiscores")
+        .then(response => response.json())
+        .then(hs => {
+            var hslen = hs.length;
+            for (var i = 0; i < hslen; i++) {
+                highScores[i] = Math.max(highScores[i], hs[i]);
+            }
+        })
+        .catch(error => console.error('Error loading high scores:', error));
 };
 var saveHighScores = function() {
-    if (localStorage) {
-        localStorage.highScores = JSON.stringify(highScores);
-    }
+    fetch("/hiscores", {
+        method: "POST",
+        body: JSON.stringify(highScores),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).catch(error => console.error('Error saving high scores:', error));
 };
 //@line 1 "src/direction.js"
 //////////////////////////////////////////////////////////////////////////////////////
