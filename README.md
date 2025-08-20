@@ -9,8 +9,9 @@ Inspired by [The Pac-Man Dossier](http://home.comcast.net/~jpittman2/pacman/pacm
 - The pacman.js was modified to play start-music.mp3 only once on game-start menu.
 - Changed hiscores from localStorage (browser) to KV storage (cloudsave) so it won't be cleared on your local browser.
 - This project is modified to deploy on Cloudflare Pages with KV storage enabled. (add KV namespace 'pacman', then variable 'HISCORES'.)
-- When deployment, don't add 'sh build.sh' on build command. just let it run 'index.html'
-- [TRY HERE](https://pacman-dbq.pages.dev/) Can you break the Hi-Score? ;)
+- (Option) When deployment, you can add 'sh build.sh' on build command to create new pacman.js. Or just leave blank.
+- Reserved pacman.js.bak - hiscore save to localStorage of browser.
+- [TRY HERE](https://pacman-dbq.pages.dev/). Can you break the Hi-Score? ;)
 
 ### Under Construction
 
